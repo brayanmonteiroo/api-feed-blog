@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Post</title>
-</head>
-<body>
-    <h1>Detalhes do Post</h1>
-    <ul>
-        <li>ID: {{ $post['id'] }}</li>
-        <li>Título: {{ $post['titulo'] }}</li>
-        <li>Descrição: {{ $post['descricao'] }}</li>
-        <li>Texto Completo: {{ $post['texto_completo'] }}</li>
-        <li>Imagem: {{ $post['imagem'] }}</li>
-        <li>Data de Publicação: {{ $post['data_de_publicacao'] }}</li>
-        <li>Criado em: {{ $post['created_at'] }}</li>
-        <li>Atualizado em: {{ $post['updated_at'] }}</li>
-    </ul>
-</body>
-</html>
+@include('header')
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mt-5">
+                    <li class="breadcrumb-item"><a href="/">Início</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $post['titulo'] }}</li>
+                </ol>
+            </nav>
+            <h2 class="mb-4 mt-4">{{ $post['titulo'] }}</h2>
+            <img src="http://localhost/{{ $post['imagem'] }}" class="img-fluid mb-4" alt="{{ $post['titulo'] }}">
+            <p>{{ $post['texto_completo'] }}</p>
+        </div>
+    </div>
+</div>
+
+@include('footer')
