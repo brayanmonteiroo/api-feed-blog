@@ -2,29 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        // Obter os dados dos posts da sua própria API
-        $response = Http::get('http://localhost/api/posts');
-        $posts = $response->json();
-        dd($response);
+        // Obtém a resposta HTTP diretamente do controlador da API
+        $response = app('App\Http\Controllers\PostController')->index();
 
-        // Retornar a view com os dados dos posts
-        return view('frontend.index', compact('posts'));
+        // Extrai os dados da resposta HTTP
+        $posts = $response->original;
+
+        // Retorna uma view com os dados dos posts
+        return view('index', compact('posts'));
     }
 
     public function show($id)
     {
-        // Obter os dados de um post específico da sua própria API
-        $response = Http::get("http://localhost/api/posts/{$id}");
-        $post = $response->json();
-        dd($response);
+        // Obtém um post específico diretamente do controlador da API
+        $response = app('App\Http\Controllers\PostController')->show($id);
 
-        // Retornar a view com os dados do post específico
-        return view('frontend.show', compact('post'));
+        // Extrai os dados da resposta HTTP
+        $post = $response->original;
+
+        // Retorna uma view com os dados do post específico
+        return view('show', compact('post'));
     }
+
 }
+

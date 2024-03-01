@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(4);
+        $posts = Post::all()->toArray();
         return response()->json($posts);
     }
 
