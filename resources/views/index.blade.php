@@ -23,4 +23,6 @@
     @endforeach
 </div>
 
+@include('paginacao')
+
 @include('footer')

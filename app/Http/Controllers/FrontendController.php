@@ -16,7 +16,7 @@ class FrontendController extends Controller
         // Retorna uma view com os dados dos posts
         return view('index', compact('posts'));
     }
-
+    
     public function show($id)
     {
         // Obtém um post específico diretamente do controlador da API
@@ -28,6 +28,5 @@ class FrontendController extends Controller
         // Retorna uma view com os dados do post específico
         return view('show', compact('post'));
     }
-
 }
 
