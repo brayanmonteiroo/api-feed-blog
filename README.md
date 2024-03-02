@@ -8,7 +8,7 @@ Antes de começar, verifique se o seguinte software está instalado em sua máqu
 
 - Docker
 - Composer
-- Postman ou cliente HTTP (opcional)
+- Postman ou cliente HTTP
 
 ## Instalação
 
