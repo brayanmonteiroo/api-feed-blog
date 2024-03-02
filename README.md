@@ -18,10 +18,14 @@ Antes de começar, verifique se o seguinte software está instalado em sua máqu
     git clone https://github.com/brayanmonteiroo/api-feed-blog
     ```
 
-2. Navegue até o diretório do projeto:
+2. Navegue até o diretório do projeto e recrie o .env:
 
     ```bash
     cd api-feed-blog
+    ```
+
+    ```bash
+    cp .env.example .env
     ```
 
 3. Instale as dependências do Composer:
@@ -54,10 +58,10 @@ Antes de começar, verifique se o seguinte software está instalado em sua máqu
     ./vendor/bin/sail artisan key:generate
     ```
 
-8. Execute as migrações para criar as tabelas do banco de dados:
+8. Execute as migrações para criar as tabelas do banco de dados e popule o banco com a excução do seed ao mesmo tempo:
 
     ```bash
-    ./vendor/bin/sail artisan migrate
+    ./vendor/bin/sail artisan migrate --seed
     ```
 
 ## Uso da API
