@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(4);
+        $posts = Post::orderBy('data_de_publicacao', 'asc')->paginate(6);
         return response()->json($posts);
     }
 
